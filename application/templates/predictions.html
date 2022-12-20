@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Выпускная квалификационная работа Тамары Урушадзе</title>
+</head>
+<body>
+<h1>Прогнозирование модуля упругости при растяжении и прочности при растяжении</h1>
+
+{% if error_message %}
+  <pre style="color:#ed6742; font-weight: bold;">
+    {{ error_message }}
+  </pre>
+{% endif %}
+
+<form action="" method="post">
+  <p>
+    <label>
+      <input type="text" name="f1" value="" required>
+      Соотношение матрица-наполнитель
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f2" value="" required>
+      Плотность, кг/м3
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f3" value="" required>
+      Модуль упругости, ГПа
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f4" value="" required>
+      Количество отвердителя, м.%
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f5" value="" required>
+      Содержание эпоксидных групп,%_2
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f6" value="" required>
+      Температура вспышки, С_2
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f7" value="" required>
+      Поверхностная плотность, г/м2
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f8" value="" required>
+      Потребление смолы, г/м2
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f9" value="" required>
+      Угол нашивки, град
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f10" value="" required>
+      Шаг нашивки
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="text" name="f11" value="" required>
+      Плотность нашивки
+    </label>
+  </p>
+  <p>
+    <input type="submit">
+  </p>
+</form>
+
+{% if result %}
+  <p>Входные данные:</p>
+  {{ inputs|safe }}
+
+  <p>Результат модели:</p>
+  <table>
+    <thead>
+      <tr>
+        {% for key in result.keys() %}
+          <th style="border: 3px solid #ed6742;">{{ key }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for value in result.values() %}
+        <th style="border: 3px solid #ed6742;">{{ value }}</th>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endif %}
+
+</body>
+</html>
